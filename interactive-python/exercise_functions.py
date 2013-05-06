@@ -239,7 +239,7 @@ wn.exitonclick()
 """
 """ exercise 11
 Extend the star function to draw an n pointed star. (Hint: n must be an odd number greater or equal to 3).
-"""
+
 import turtle
 
 def draw_star(obj, length, n):
@@ -265,5 +265,135 @@ for i in range(3, 12, 2):
   pen.penup()
   pen.setposition(100*i, 0)
   pen.pendown()
+
+wn.exitonclick()
+"""
+""" exercise 12
+Write a function called drawSprite that will draw a sprite. The function will need parameters for the turtle, the number of legs, and the length of the legs. Invoke the function to create a sprite with 15 legs of length 120.
+
+import turtle
+
+def drawSprite(obj, nums, length):
+  for i in range(4):
+    obj.forward(50)
+    obj.left(90)
+
+  obj.penup()
+  obj.goto(25,0)
+  obj.pendown()
+
+  angle = 180.0/(nums+1)
+  for i in range(nums):
+    obj.right(angle)
+    obj.forward(length)
+    obj.penup()
+    obj.goto(25,0)
+    obj.pendown()
+
+wn = turtle.Screen()
+wn.bgcolor('lightgreen')
+
+pen = turtle.Turtle()
+pen.pensize(1)
+pen.pencolor('purple')
+
+drawSprite(pen, 15, 120)
+
+wn.exitonclick()
+"""
+""" exercise 13
+Rewrite the function sumTo(n) that returns the sum of all integer numbers up to and including n. This time use the accumulator pattern.
+
+def sumTo(n):
+#  return (n * (n + 1)) / 2
+  if n == 1:
+    return 1
+  else:
+    return n + sumTo(n-1)
+
+def main():
+  print 'sumTo(10)=',sumTo(10)
+
+if __name__ == '__main__':
+  main()
+"""
+""" exercise 14
+Write a function called mySqrt that will approximate the square root of a number, call it n, by using Newton's algorithm. Newton's approach is an iterative guessing algorithm where the initial guess is n/2 and each subsequent guess is computed using the formula: newguess = (1/2) * (oldguess + (n/oldguess)).
+
+def mySqrt(n):
+  oldguess = n/2
+  newguess = (1.0/2) * (oldguess + (n/oldguess))
+  #print 'old:',oldguess,'new:',newguess
+  return newguess
+
+def main():
+  print 'approximate square root of %d is %f' % (4, mySqrt(4))
+
+if __name__ == '__main__':
+  main()
+"""
+""" exercise 15
+Write a function called myPi that will return an approximation of PI (3.14159...). Use the Liebniz approximation as described in class.
+
+def formula(n):
+    return (-1.0)**n / (2*n + 1)
+
+def myPi(n):
+  if n == 0:
+    return 1
+  else:
+    return formula(n) + myPi(n-1)
+
+def main():
+  print 'myPi is', 4*myPi(500)
+
+if __name__ == '__main__':
+  main()
+"""
+""" exercise 16
+Write a function called myPi that will return an approximation of PI (3.14159...). Use the Madhava approximation as described in class. --> same formula as above(skip)
+"""
+
+""" exercise 17
+Write a function called fancySquare that will draw a square with fancy corners (spites on the corners). You should implement and use the drawSprite function from above. For an even more interesting look, how about adding small triangles to the ends of the sprite legs.
+"""
+import turtle
+
+def drawTriangle(obj):
+  obj.right(60)
+  obj.forward(50)
+
+  for i in range(2):
+    obj.right(120)
+    obj.forward(50)
+
+  obj.right(60)
+
+def drawSprite(obj, nums, length):
+  for i in range(4):
+    obj.forward(50)
+    obj.left(90)
+
+  obj.penup()
+  obj.goto(25,0)
+  obj.pendown()
+
+  angle = 180.0/(nums+1)
+  for i in range(nums):
+    obj.right(angle)
+    obj.forward(length)
+    drawTriangle(obj)
+    obj.penup()
+    obj.goto(25,0)
+    obj.pendown()
+
+wn = turtle.Screen()
+wn.bgcolor('lightgreen')
+
+pen = turtle.Turtle()
+pen.pensize(1)
+pen.pencolor('purple')
+
+drawSprite(pen, 15, 120)
 
 wn.exitonclick()
