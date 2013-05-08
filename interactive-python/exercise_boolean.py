@@ -110,7 +110,7 @@ if __name__ == '__main__':
 """
 """ exercise 6
 Write a function findHypot which, given the length of two sides of a right-angled triangle, returns the length of the hypotenuse. (Hint: x ** 0.5 will return the square root, or use sqrt from the math module)
-"""
+
 import math
 
 def findHypot(x, y):
@@ -121,3 +121,85 @@ def main():
 
 if __name__ == '__main__':
     main()
+"""
+""" exercise 7
+Write a function called is_even(n) that takes an integer as an argument and returns True if the argument is an even number and False if it is odd.
+
+def is_even(n):
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+
+def main():
+    print is_even(3)
+    print is_even(4)
+
+if __name__ == '__main__':
+    main()
+"""
+""" exercise 8 & 9
+Now write the function is_odd(n) that returns True when n is odd and False otherwise.
+Modify is_odd so that it uses a call to is_even to determine if its argument is an odd integer.
+
+def is_even(n):
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+
+def is_odd(n):
+    return not is_even(n)
+
+def main():
+    print is_odd(3)
+    print is_odd(4)
+
+if __name__ == '__main__':
+    main()
+"""
+""" exercise 10
+Write a function is_rightangled which, given the length of three sides of a triangle, will determine whether the triangle is right-angled. Assume that the third argument to the function is always the longest side. It will return True if the triangle is right-angled, or False otherwise.
+
+import math
+
+def is_rightangled(a, b, longest):
+    if math.hypot(a, b) == longest:
+        return True
+    else:
+        return False
+
+print is_rightangled(1, 1, 2**0.5)
+"""
+""" exercise 11
+Extend the above program so that the sides can be given to the function in any order.
+
+import math
+
+def is_rightangled(a, b, c):
+    lists = [a, b, c]
+    lists.sort()
+    if math.hypot(lists[0], lists[1]) == lists[2]:
+        return True
+    else:
+        return False
+
+print is_rightangled(1, 2**0.5, 1)
+"""
+""" exercise 12
+A year is a leap year if it is divisible by 4 unless it is a century that is not divisible by 400. Write a function that takes a year as a parameter and returns True if the year is a leap year, False otherwise.
+"""
+def is_leapyear(n):
+    if n % 4 == 0 and n % 400 != 0:
+        return True
+    else:
+        return False
+
+print is_leapyear(2000)
+print is_leapyear(1000)
+print is_leapyear(1990)
+print is_leapyear(2016)
+
+""" exercise 13
+Implement the Date of Easter program as described in class.
+"""
