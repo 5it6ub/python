@@ -133,7 +133,7 @@ if __name__ == '__main__':
 """
 """ exercise 6
 Modify the previous program so that rather than a left or right turn the angle of the turn is determined randomly at each step. When the turtle hits the wall you must calculate the correct angle for the bounce.
-"""
+
 import turtle
 import random
 import math
@@ -226,3 +226,7 @@ def main():
 
 if __name__ == '__main__':
   main()
+"""
+""" exercise 7
+Write a function to remove all the red from an image.
+"""

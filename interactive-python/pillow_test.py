@@ -17,5 +17,11 @@ class TestPillow(unittest.TestCase):
         small = self.image.resize([32, 32])
         small.save('lena_small.jpg', 'JPEG')
 
+def show():
+  im = Image.open('lena.tiff')
+  print im.format, im.size, im.mode
+  im.show()
+
 if __name__ == '__main__':
-    unittest.main()
+#    unittest.main()
+    show()
