@@ -1,0 +1,24 @@
+print
+# "" '' """""" ''''''
++ - * / %
+< > <= >=
+,
+=
+%d %o %X %s %r
+\t \n \\
+raw_input('xxx')
+from sys import argv
+fom os.path import exists
+script, filename = argv
+f = open(filename, 'w')
+f.read()
+f.close()
+f.readline()
+f.readlines()
+f.truncate()
+f.write('')
+f.seek(0)
+f.tell()
+str.join()
+def
+return
